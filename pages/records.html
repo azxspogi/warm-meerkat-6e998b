@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DV Records</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../assets/js/supabase.js"></script>
+
+  <!-- JS -->
+  <script src="../assets/js/records.js" defer></script>
+
+  <style>
+    /* ===== MODAL (CLEAN POPUP STYLE) ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal.active {
+      display: flex;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .modal-box {
+      background: #081636;
+      padding: 20px;
+      border-radius: 14px;
+      width: 350px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      animation: pop 0.2s ease-in-out;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-box input,
+    .modal-box select {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #1e293b;
+      color: white;
+    }
+
+    .modal-box button {
+      margin-top: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">DV SYSTEM</div>
+
+  <a href="dashboard.html">Dashboard</a>
+  <a href="records.html">DV Records</a>
+  <a href="add.html">Add DV</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <h2>DV Records</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Payee</th>
+        <th>Particulars</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody id="table"></tbody>
+  </table>
+
+</div>
+
+<!-- ================= EDIT MODAL ================= -->
+<div id="modal" class="modal" onclick="outsideClick(event)">
+
+  <div class="modal-box" onclick="event.stopPropagation()">
+
+    <h3>Edit DV</h3>
+
+    <input type="hidden" id="editId">
+
+    <input type="date" id="editDate">
+    <input type="text" id="editPayee" placeholder="Payee">
+    <input type="text" id="editParticulars" placeholder="Particulars">
+    <input type="number" id="editAmount" placeholder="Amount">
+
+    <select id="editStatus">
+      <option>Pending</option>
+      <option>Paid</option>
+    </select>
+
+    <button class="btn" onclick="updateDV()">Save Changes</button>
+    <button onclick="closeModal()">Cancel</button>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add DV</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="../assets/js/supabase.js"></script>
+  <script src="../assets/js/add.js" defer></script>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="logo">DV SYSTEM</div>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="records.html">DV Records</a>
+  <a href="add.html">Add DV</a>
+</div>
+
+<div class="main">
+
+  <h2>Add DV</h2>
+
+  <input id="date" type="date">
+  <input id="payee" placeholder="Payee">
+  <input id="particulars" placeholder="Particulars">
+  <input id="amount" type="number" placeholder="Amount">
+
+  <select id="addstatus">
+    <option>Pending</option>
+    <option>Paid</option>
+  </select>
+
+  <button class="btn" onclick="addDV()">Submit</button>
+
+</div>
+
+</body>
+</html>

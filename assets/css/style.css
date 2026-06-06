@@ -1,0 +1,95 @@
+:root {
+  --bg: #0b1220;
+  --panel: #081636;
+  --panel2: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warn: #f59e0b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #0a1020;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+.sidebar a:hover {
+  background: var(--accent);
+  color: black;
+}
+
+.logo {
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #1e293b;
+  text-align: center;
+}
+
+th {
+  background: #1e293b;
+}
+
+/* BUTTONS */
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn { background: var(--accent); }
+.edit { background: var(--warn); }
+.del { background: var(--danger); color: white; }
+
+/* BADGE */
+.badge {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.paid { background: var(--success); color: black; }
+.pending { background: var(--warn); color: black; }
